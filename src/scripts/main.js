@@ -26,7 +26,7 @@ const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
   // WRITE YOUR CODE HERE
-  if (Object.keys(data) < 1) {
+  if (Object.keys(data).length < 1) {
     return;
   }
 
@@ -38,7 +38,7 @@ function createTree(element, data) {
 
     li.textContent = key;
 
-    if (Object.keys(key).length > 0) {
+    if (Object.keys(data[key]).length > 0) {
       createTree(li, data[key]);
     }
     ul.appendChild(li);
