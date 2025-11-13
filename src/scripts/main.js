@@ -17,11 +17,32 @@ const food = {
     },
   },
 };
+const div = document.createElement('div');
+
+div.id = 'tree';
+document.querySelector('body').append(div);
 
 const tree = document.querySelector('#tree');
 
 function createTree(element, data) {
   // WRITE YOUR CODE HERE
-}
+  if (Object.keys(data) < 1) {
+    return;
+  }
 
+  const ul = document.createElement('ul');
+  const keysArr = Object.keys(data);
+
+  for (const key of keysArr) {
+    const li = document.createElement('li');
+
+    li.textContent = key;
+
+    if (Object.keys(key).length > 0) {
+      createTree(li, data[key]);
+    }
+    ul.appendChild(li);
+  }
+  element.appendChild(ul);
+}
 createTree(tree, food);
